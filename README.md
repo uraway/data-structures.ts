@@ -28,7 +28,7 @@ LinkedListは、各要素が次の要素を参照を持っているシーケン�
 
 ### 実装
 
-```ts
+```javascript
 export class LinkedListNode<T> {
   value: T;
   nextNode: LinkedListNode<T> | null;
@@ -239,7 +239,7 @@ Stackは、LIFO(Last In First Out)のデータ構造です。データを'A','B'
 
 ### 実装
 
-```ts
+```javascript
 export class StackNode<T> {
   value: T;
   nextNode: StackNode<T> | null;
@@ -325,7 +325,7 @@ Queueは、FIFO(First In First Out)のデータ構造です。データを'A','B
 - dequeue() - `O(1)`: 最も古いデータを削除する
 - peek() - `O(1)`: 最も古いデータを返す
 
-```ts
+```javascript
 export class QueueNode<T> {
   value: T;
   nextNode: QueueNode<T> | null;
@@ -425,7 +425,7 @@ JavaScriptでは、`Object`/`Map`で事足りるはずなので、自分で実�
 
 ### 実装
 
-```ts
+```javascript
 export class HashTable {
   size: number;
   table: Array<unknown>;
@@ -479,7 +479,7 @@ console.log(hashTable.get('B')); // b
 
 実装には、コンストラクタで定義する`table`に、LinkedListを使用します。ハッシュ値が衝突した場合、同一インデックスのLinkedListにデータを`push`します。
 
-```ts
+```javascript
 import { LinkedList, LinkedListNode } from './list';
 
 export class HashTableWithLinkedList {
@@ -586,7 +586,7 @@ C   D
 
 ### 実装
 
-```ts
+```javascript
 import { Queue } from './queue';
 
 export class Node<T> {
@@ -796,17 +796,19 @@ heapの要素数 | h
 7           | 3
 8           | 3
 9           | 4
-<= $2^k$      | $$k$$
+<= [tex: 2^k]      | [tex: k]
 
 
-$$
+<div align='center' class='scroll'>
+[tex: \displaystyle
 \begin{aligned}
 n &\leqq 2^k \\
 k &\leqq log_2 n
 \end{aligned}
-$$
+]
+</div>
 
-よって時間計算量は、$O(\log n)$となります。
+よって時間計算量は、[tex: O(\log n)]となります。
 
 #### remove
 
@@ -863,11 +865,11 @@ $$
 
 次に、時間計算量を考えます。最も入れ替えのコストが重い場合(最小の要素を削除する場合)を考えてみましょう。`add`と同じように、MinHeapの高さに比例します。
 
-よって時間計算量は、$O(\log n)$となります。
+よって時間計算量は、[tex: O(\log n)]となります。
 
 ### 実装
 
-```ts
+```javascript
 export class MinHeap {
   heap: Array<number>;
 
@@ -981,7 +983,7 @@ to    te
 
 ### 実装
 
-```ts
+```javascript
 export class TrieNode {
   value: string;
   children: { [x: string]: TrieNode };
@@ -1080,18 +1082,21 @@ export class Trie {
 
 時間計算量は、ツリーの高さが`k`であるとき、ノード数は`k^2`より小さいことから、
 
-$$
+<div align='center' class='scroll'>
+[tex: \displaystyle
 \begin{aligned}
 n &\leqq 2^k \\
 k &\leqq log_2 n
 \end{aligned}
-$$
+]
+</div>
 
-よって時間計算等は$O(log n)$
+
+よって時間計算等は[tex: O(log n)]
 
 ### 仕様
 
-```ts
+```javascript
 export class BinarySearchTreeNode {
   value: number;
   right: null | BinarySearchTreeNode;
@@ -1232,7 +1237,7 @@ function traverseWithBreadthFirst
 
 ## 実装
 
-```ts
+```javascript
 import { Queue } from './queue';
 import { Stack } from './stack';
 
